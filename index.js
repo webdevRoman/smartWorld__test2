@@ -43,12 +43,16 @@ for (let elIndi = 0; elIndi < elements2D.length; elIndi++) {
       }
       for (let i = 0; i < 50; i++)
         for (let j = 0; j < 50; j++) {
-          if (i >= elIndi - step && i <= elIndi + step && j >= elIndj - step && j <= elIndj + step)
+          // if (i >= elIndi - step && i <= elIndi + step && j >= elIndj - step && j <= elIndj + step)
+          //   elements2D[i][j].classList = elClass;
+          // if (i >= elIndi - step + 1 && i <= elIndi + step - 1 && j >= elIndj - step + 1 && j <= elIndj + step - 1)
+          //   elements2D[i][j].classList = 'elem';
+          // if (i === elIndi && j === elIndj)
+          //   elements2D[i][j].classList = elClass;
+          if ((i === elIndi - step || i === elIndi + step || j === elIndj - step || j === elIndj + step || (i === elIndi && j === elIndj)) && i >= elIndi - step && i <= elIndi + step && j >= elIndj - step && j <= elIndj + step) {
             elements2D[i][j].classList = elClass;
-          if (i >= elIndi - step + 1 && i <= elIndi + step - 1 && j >= elIndj - step + 1 && j <= elIndj + step - 1)
-            elements2D[i][j].classList = 'elem';
-          if (i === elIndi && j === elIndj)
-            elements2D[i][j].classList = elClass;
+            console.log('click');
+          }
         }
     });
   }
