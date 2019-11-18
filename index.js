@@ -30,21 +30,26 @@ for (let elIndi = 0; elIndi < elements2D.length; elIndi++) {
       let elClass = '';
       switch (step) {
         case 1:
-          elClass = 'elem_green';
+          elClass = 'elem elem_green';
           break;
         case 2:
-          elClass = 'elem_blue';
+          elClass = 'elem elem_blue';
           break;
         case 3:
-          elClass = 'elem_red';
+          elClass = 'elem elem_red';
           break;
         default:
           break;
       }
       for (let i = 0; i < 50; i++)
-        for (let j = 0; j < 50; j++)
+        for (let j = 0; j < 50; j++) {
           if (i >= elIndi - step && i <= elIndi + step && j >= elIndj - step && j <= elIndj + step)
-            elements2D[i][j].classList.add(elClass);
+            elements2D[i][j].classList = elClass;
+          if (i >= elIndi - step + 1 && i <= elIndi + step - 1 && j >= elIndj - step + 1 && j <= elIndj + step - 1)
+            elements2D[i][j].classList = 'elem';
+          if (i === elIndi && j === elIndj)
+            elements2D[i][j].classList = elClass;
+        }
     });
   }
 }
